@@ -6,7 +6,8 @@
 <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="assets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
 <link href="assets/vendor/select.css" rel="stylesheet" media="screen">
-<link rel="stylesheet" href="assets/style.css" type="text/css"  />
+    <link rel="stylesheet" href="assets/style.css" type="text/css"  />
+    <link rel="stylesheet" href="assets/bootstrap/css/parsley.css" type="text/css"  />
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <style type="text/css">
 	.contain{
