@@ -6,6 +6,10 @@ require_once 'class.user.php';
 $set = new USER();
 $kodeMPO = $set->generateRandomString(24);
 
+$query = "SELECT * FROM tb_jenis_pekerjaan";
+$listMPO = $set->runQuery($query);
+$listMPO->execute();
+
 
 //if (isset($_POST['cekKebutuhan'])) {
 //	# code...
@@ -53,10 +57,10 @@ $new_password = password_hash($upass, PASSWORD_DEFAULT);
 
     <div class="signin-form" id="categoryType">
 
-        <div class="container">
+        <div class="container form-signin">
 
 
-            <form class="form-signin" method="post" id="kebutuhanForm" data-parsley-validate="">
+            <form class="" method="post" id="kebutuhanForm" data-parsley-validate="">
 
                 <h2 class="form-signin-heading">Pilih Jenis Kebutuhan</h2>
                 <hr/>
@@ -105,12 +109,17 @@ $new_password = password_hash($upass, PASSWORD_DEFAULT);
                 </div>
                 <hr/>
                 <div class="form-group">
-                    <button type="submit" name="cekKebutuhan" class="btn btn-danger">
+                    <button type="submit" name="cekKebutuhan" class="btn btn-danger btn-block">
                         <i class="glyphicon glyphicon-send	"></i> &nbsp; Pilih Kebutuhan
                     </button>
                 </div>
 
             </form>
+            <br/>
+            <hr/>
+            <label>Jika perusahaan anda telah Terdaftar, <a href="#" data-toggle="modal" data-target="#loginModal">
+                    <button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-log-in"></span> Masuk</button>
+                </a></label>
 
         </div>
 
@@ -160,6 +169,92 @@ $new_password = password_hash($upass, PASSWORD_DEFAULT);
 <!--        </ul>-->
 <!--    </div>-->
 <!--</div>-->
+
+    <div class="modal fade" id="loginModal" role="dialog">
+        <div class="modal-dialog">
+
+            <form method="post" class="form-login" id="formLogin" action="" data-parsley-validate="">
+                <h2 class="form-signin-heading">Login Corporate</h2><hr />
+                <?php
+                if(isset($error))
+                {
+                    ?>
+                    <div div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <i class="glyphicon glyphicon-danger-sign"></i> &nbsp; <?php echo $error; ?>
+                    </div>
+                    <?php
+                }
+                else if(isset($_GET['joined']))
+                {
+                    ?>
+                    <div class="alert alert-info">
+                        <i class="glyphicon glyphicon-log-in"></i> &nbsp; Successfully registered <strong><a href='index.php'>login</a></strong> here
+                    </div>
+                    <?php
+                }
+                ?>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="txt_kode" id="logKode" placeholder="kode perusahanan" required />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="txt_upass" id="logPass" placeholder="enter password" required />
+                </div>
+                <div class="clearfix"></div><hr />
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block" name="btn-login">
+                        <i class="glyphicon glyphicon-log-in"></i>&nbsp;LOGIN
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="addListMPO" role="dialog">
+        <div class="modal-dialog">
+
+            <form class="form-login" method="post" id="formListMPO" data-parsley-validate="">
+
+                <div class="form-group">
+
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" name="listNomorMPO" id="listNomorMPO"  value="<?php echo $kodeMPO; ?>" />
+                        <span id="check-e"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <select class="form-control" name="txtlistMPO" id="addListMPO" required="">
+                            <option value="">Choose..</option>
+                            <?php
+                            while ($row = $listMPO->fetch(PDO::FETCH_LAZY)) {
+                                # code...
+
+                                ?>
+                                <option value="<?php echo $row['kd_pekerjaan']; ?>" data-id ="<?=$row['kd_pekerjaan']?>" data-title="<?=$row['nama_pekerjaan']?>"><?php echo $row['nama_pekerjaan']; ?></option>
+                            <?php } ?>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="text" data-parsley-type="number" class="form-control" name="listJumlahMPO" id="listJumlahMPO"  required />
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-block">
+                        <i class="glyphicon glyphicon-plus-sign"></i> &nbsp; Tambah List
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
 
 <?php
 require_once'footer.php';

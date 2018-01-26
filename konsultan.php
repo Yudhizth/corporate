@@ -3,9 +3,9 @@
 	<div class="container form-signin">
      
         
-       <form class="" method="post" action = "request.php" id="login-form">
+       <form class="" method="post" id="KSTform" data-parsley-validate="">
       
-        <h2 class="form-signin-heading">Pendaftaran & Request Perusahaan</h2><hr />
+        <h2 class="form-signin-heading"> Request Perusahaan</h2><hr />
         <div id="error">
         <?php
 			if(isset($error))
@@ -20,25 +20,21 @@
         </div>
         <div class="form-group">
 
-        	<div class="form-group">
-			        <input type="hidden" class="form-control" name="txt_kd" value="<?php echo $nomor; ?>" />
-			        <span id="check-e"></span>
-	        </div>
         	
 	        <div class="form-group">
-			        <input type="text" class="form-control" name="txt_nama" placeholder="nama perusahaan" required />
+			        <input type="text" class="form-control" name="txt_nama" id="kstNama" placeholder="nama perusahaan" data-parsley-minlength="5" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 5 character.." required />
 			        <span id="check-e"></span>
 	        </div>
 	        <div class="form-group">
-			        <input type="text" class="form-control" name="txt_cp" placeholder="nama contact person" required />
+			        <input type="text" class="form-control" name="txt_cp" id="kstCp" placeholder="nama contact person" data-parsley-minlength="3" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 3 character.." required />
 			        <span id="check-e"></span>
 	        </div>
 	        <div class="form-group">
-			        <input type="number" class="form-control" name="txt_phone" placeholder="nomor telphone" required />
+			        <input type="number" class="form-control" name="txt_phone" id="kstPhone" data-parsley-minlength="5" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 5 character.." placeholder="nomor telphone" required />
 			        <span id="check-e"></span>
 	        </div>
 	        <div class="form-group">
-			        <input type="email" class="form-control" name="txt_email" placeholder="example@domain.com" required />
+			        <input type="email" class="form-control" name="txt_email" id="kstEmail"  placeholder="example@domain.com" required />
 			        <span id="check-e"></span>
 	        </div>
         </div>

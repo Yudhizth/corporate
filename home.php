@@ -3,7 +3,15 @@ require_once 'header.php';
 require_once ("session.php");
 include_once 'class.user.php';
 $config = new USER();
-$kode = $_SESSION['kode_session'];
+
+$curdir = dirname($_SERVER['REQUEST_URI'])."/";
+
+
+if(isset($_SESSION['kode_session'])){
+    $kode = $_SESSION['kode_session'];
+}else{
+    $config->redirect('sign-up.php');
+}
 
     $sql = "SELECT * FROM tb_perusahaan WHERE tb_perusahaan.kode_perusahaan = :kode";
     $stmt = $config->runQuery($sql);

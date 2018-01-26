@@ -17,7 +17,8 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
     <div class="panel panel-success">
         <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                   aria-expanded="true" aria-controls="collapseOne">
                     Informasi Personal
                 </a>
             </h4>
@@ -28,24 +29,28 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
                 <form class="form-horizontal" method="post" action="">
                     <div class="col-md-12" style="margin-bottom: 20px;">
                         <div class="col-md-4" style="margin-right: -50px;">
-                            <img src="<?=$userRow['foto']?>" class="img-responsive img-rounded" width="60%" style="margin-left: 20%;">
+                            <img src="<?= $userRow['foto'] ?>" class="img-responsive img-rounded" width="60%"
+                                 style="margin-left: 20%;">
                         </div>
                         <div class="col-md-8" style="margin-left: -10px; margin-top:10px;">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                        <div class="col-sm-4">
-                                                Nomor KTP
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="inputEmail3" name="txt_ktp" value="<?php print($userRow['no_ktp']); ?>" readonly>
-                                            </div>
+                                    <div class="col-sm-4">
+                                        Nomor KTP
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="inputEmail3" name="txt_ktp"
+                                               value="<?php print($userRow['no_ktp']); ?>" readonly>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-4">
                                         Nama Lengkap
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['nama_depan']); ?> <?php print($userRow['nama_belakang']); ?>" name="txt_nama" readonly>
+                                        <input type="text" class="form-control" id="inputEmail3"
+                                               value="<?php print($userRow['nama_depan']); ?> <?php print($userRow['nama_belakang']); ?>"
+                                               name="txt_nama" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -53,14 +58,15 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
                                         Alamat Email
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="inputEmail3" name="txt_ktp" value="<?php print($userRow['email']); ?>" readonly>
+                                        <input type="text" class="form-control" id="inputEmail3" name="txt_ktp"
+                                               value="<?php print($userRow['email']); ?>" readonly>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
-<br>
+                    <br>
                     <div class="col-sm-4">
                         Nomor Handphone
                     </div>
@@ -73,13 +79,17 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
 
                     <div class="form-group">
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['nomor_hp']); ?>" name="txt_hp" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['nomor_hp']); ?>" name="txt_hp" readonly>
                         </div>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['nomor_telp']); ?>" name="txt_telp" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['nomor_telp']); ?>" name="txt_telp" readonly>
                         </div>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['tempat_lahir']); ?>, <?php print($userRow['tgl_lahir']); ?>" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['tempat_lahir']); ?>, <?php print($userRow['tgl_lahir']); ?>"
+                                   readonly>
                         </div>
                     </div>
 
@@ -95,13 +105,16 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
 
                     <div class="form-group">
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['nama_suku']); ?>" name="txt_suku" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['nama_suku']); ?>" name="txt_suku" readonly>
                         </div>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['agama']); ?>" name="txt_agama" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['agama']); ?>" name="txt_agama" readonly>
                         </div>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['status_perkawinan']); ?>" name="txt_status" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['status_perkawinan']); ?>" name="txt_status" readonly>
                         </div>
                     </div>
 
@@ -123,19 +136,24 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
 
                     <div class="form-group">
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['tinggi_badan']); ?>" name="txt_tinggi" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['tinggi_badan']); ?>" name="txt_tinggi" readonly>
                         </div>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['berat_badan']); ?>" name="txt_berat" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['berat_badan']); ?>" name="txt_berat" readonly>
                         </div>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['nomor_sim']); ?>" name="txt_sim" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['nomor_sim']); ?>" name="txt_sim" readonly>
                         </div>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['jenis_sim']); ?>" name="txt_jenis" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['jenis_sim']); ?>" name="txt_jenis" readonly>
                         </div>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['jenis_kelamin']); ?>" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['jenis_kelamin']); ?>" readonly>
                         </div>
                     </div>
                     <hr>
@@ -143,21 +161,26 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
                         Status Tempat Tinggal
                     </div>
                     <div class="col-sm-4">
-                        Alamat Rumah <small><strong></strong></small>
+                        Alamat Rumah
+                        <small><strong></strong></small>
                     </div>
                     <div class="col-sm-4">
-                        Kelurahan <small><strong></strong></small>
+                        Kelurahan
+                        <small><strong></strong></small>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['status_tempat_tinggal']); ?>" name="txt_tmpt" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['status_tempat_tinggal']); ?>" name="txt_tmpt" readonly>
                         </div>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['alamat']); ?>" name="txt_alamat" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['alamat']); ?>" name="txt_alamat" readonly>
                         </div>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['kelurahan']); ?>" name="txt_kelurahan" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['kelurahan']); ?>" name="txt_kelurahan" readonly>
                         </div>
 
                     </div>
@@ -166,7 +189,8 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
                         Kecamatan
                     </div>
                     <div class="col-sm-4">
-                        Kota <small><strong></strong></small>
+                        Kota
+                        <small><strong></strong></small>
                     </div>
                     <div class="col-sm-4">
                         .
@@ -174,10 +198,12 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
                     <div class="form-group">
 
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['kecamatan']); ?>" name="txt_kecamatan" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['kecamatan']); ?>" name="txt_kecamatan" readonly>
                         </div>
                         <div class="col-sm-4" readonly>
-                            <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['kota']); ?>" name="txt_kota" readonly>
+                            <input type="text" class="form-control" id="inputEmail3"
+                                   value="<?php print($userRow['kota']); ?>" name="txt_kota" readonly>
                         </div>
                         <div class="col-sm-4" readonly>
 
@@ -195,10 +221,12 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
                         <div class="form-group">
 
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['no_BPJS']); ?>" name="txt_bpjs" readonly>
+                                <input type="text" class="form-control" id="inputEmail3"
+                                       value="<?php print($userRow['no_BPJS']); ?>" name="txt_bpjs" readonly>
                             </div>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputEmail3" value="<?php print($userRow['no_NPWP']); ?>" name="txt_npwp" readonly>
+                                <input type="text" class="form-control" id="inputEmail3"
+                                       value="<?php print($userRow['no_NPWP']); ?>" name="txt_npwp" readonly>
                             </div>
                         </div>
 
@@ -207,59 +235,122 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
             </div>
         </div>
     </div>
-
-</form>
-</div>
 </div>
 <div class="panel panel-success">
-        <div class="panel-heading" role="tab" id="headingTwo">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Informasi Pendidikan
-                </a>
-            </h4>
-        </div>
+    <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Informasi Pendidikan
+            </a>
+        </h4>
+    </div>
 
-        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-            <div class="panel-body">
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body">
 
-                <br><br>
+            <br><br>
 
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <th>Tingkat Pendidikan</th>
-                        <th>Nama Badan Pendidikan</th>
-                        <th>Jurusan</th>
-                        <th>Tahun Masuk</th>
-                        <th>Tahun Lulus</th>
-                        <th>Nilai</th>
-                    </thead>
-                    <tbody>
-                        <?php 
-                        $query = "SELECT * FROM tb_info_pendidikan WHERE no_ktp = :ktp";
-                        $stmt = $config->runQuery($query);
-                        $stmt->execute(array(':ktp' => $noNIP));
+            <table class="table table-hover table-bordered">
+                <thead>
+                <th>Tingkat Pendidikan</th>
+                <th>Nama Badan Pendidikan</th>
+                <th>Jurusan</th>
+                <th>Tahun Masuk</th>
+                <th>Tahun Lulus</th>
+                <th>Nilai</th>
+                </thead>
+                <tbody>
+                <?php
+                $query = "SELECT * FROM tb_info_pendidikan WHERE no_ktp = :ktp";
+                $stmt = $config->runQuery($query);
+                $stmt->execute(array(':ktp' => $noNIP));
 
-                        while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
-                        ?>
-                        <tr>
-                            <td><?=$row['tingkat']?></td>
-                            <td><?=$row['nama_badan']?></td>
-                            <td><?=$row['jurusan']?></td>
-                            <td><?=$row['tahun_masuk']?></td>
-                            <td><?=$row['tahun_lulus']?></td>
-                            <td><?=$row['nilai']?></td>
-                        </tr>
-                        <?php 
-                            }
-                        ?>
-                    </tbody>
-                </table>
-                <br>
+                while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
+                    ?>
+                    <tr>
+                        <td><?=$row['tingkat']?></td>
+                        <td><?=$row['nama_badan']?></td>
+                        <td><?=$row['jurusan']?></td>
+                        <td><?=$row['tahun_masuk']?></td>
+                        <td><?=$row['tahun_lulus']?></td>
+                        <td><?=$row['nilai']?></td>
+                    </tr>
+                    <?php
+                }
+                ?>
+                </tbody>
+            </table>
+            <br>
 
 
-            </div>
         </div>
     </div>
+</div>
+
+<div class="panel panel-success">
+    <div class="panel-heading" role="tab" id="headingThree">
+        <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Informasi Pengalaman Kerja
+            </a>
+        </h4>
+    </div>
+
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+        <div class="panel-body">
+
+            <br><br>
+
+            <table class="table table-hover table-bordered">
+                <thead>
+                <th>Nama Perusahaan</th>
+                <th>Masuk</th>
+                <th>Keluar</th>
+                <th>Jabatan Terakhir</th>
+                <th>Gaji</th>
+                <th>Alasan Berhenti</th>
+                </thead>
+                <tbody>
+                <?php
+                $query = "SELECT * FROM tb_info_pekerjaan WHERE no_ktp = :ktp";
+                $stmt = $config->runQuery($query);
+                $stmt->execute(array(':ktp' => $noNIP));
+
+                if($stmt->rowCount() > 0 ) {
+
+                    while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
+                        ?>
+                        <tr>
+                            <td><?= $row['nama_perusahaan'] ?></td>
+                            <td><?= $row['tahun_masuk'] ?></td>
+                            <td><?= $row['tahun_lulus'] ?></td>
+                            <td><?= $row['jabatan'] ?></td>
+                            <td><?= $row['gaji'] ?></td>
+                            <td><?= $row['alasan_berhenti'] ?></td>
+                        </tr>
+                        <?php
+                    }
+                }else{
+                    ?>
+                    <tr>
+                        <td colspan="6">
+                            Belum ada riwayat Pekerjaan.
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+                </tbody>
+            </table>
+            <br>
+
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+
 
     

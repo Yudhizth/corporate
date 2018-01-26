@@ -23,7 +23,7 @@ textarea.parsley-error {
     font-size: 0.9em;
     line-height: 0.9em;
     opacity: 0;
-
+    color: #a90101;
     transition: all .3s ease-in;
     -o-transition: all .3s ease-in;
     -moz-transition: all .3s ease-in;

@@ -3,13 +3,22 @@
                 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
                  $page=$_GET["p"];        
                 switch ($page){
-                    
+
+                    case"editProfile":
+                        include "editProfile.php";
+                        break;
+                    case"listProject":
+                        include "listProject.php";
+                        break;
                     case"infoReq":
                         include "infoReq.php";
                     break;
                     case"detailKaryawan":
                         include "detailKaryawan.php";
                     break;
+                    case"detailProject":
+                        include "detailProject.php";
+                        break;
                     case"detail":
                         include "detail.php";
                     break;

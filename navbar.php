@@ -13,7 +13,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav">
-            <li ><a href="/pendaftaran/corporate/home.php">home</a></li>
+            <li ><a href="<?=$curdir?>home.php">home</a></li>
             <li><a href="?p=info">profile</a></li>
             <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">corporate  <span class="caret"></span></a>
@@ -30,7 +30,7 @@
             <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;Hi' <?= $info['nama_perusahaan']; ?>&nbsp; <span class="caret"></span></a>
                <ul class="dropdown-menu">
-                  <li><a href="?p=update">Setting</a></li>
+                  <li><a href="?p=editProfile">Setting</a></li>
                   <li><a href="logout.php?logout=true">Logout</a></li>
                </ul>
             </li>
