@@ -29,7 +29,7 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
                 <form class="form-horizontal" method="post" action="">
                     <div class="col-md-12" style="margin-bottom: 20px;">
                         <div class="col-md-4" style="margin-right: -50px;">
-                            <img src="<?= $userRow['foto'] ?>" class="img-responsive img-rounded" width="60%"
+                            <img src="<?=$userRow['foto'];?>" class="img-responsive img-rounded" width="60%"
                                  style="margin-left: 20%;">
                         </div>
                         <div class="col-md-8" style="margin-left: -10px; margin-top:10px;">
@@ -325,7 +325,7 @@ $userRow = $stmt->fetch(PDO::FETCH_LAZY);
                             <td><?= $row['tahun_masuk'] ?></td>
                             <td><?= $row['tahun_lulus'] ?></td>
                             <td><?= $row['jabatan'] ?></td>
-                            <td><?= $row['gaji'] ?></td>
+                            <td>Rp. <?php echo number_format($row['gaji'], 0, '.', '.'); ?></td>
                             <td><?= $row['alasan_berhenti'] ?></td>
                         </tr>
                         <?php

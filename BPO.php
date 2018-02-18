@@ -19,6 +19,17 @@
                 ?>
             </div>
             <div class="form-group">
+                <?php if(isset($_SESSION['kode_session'])){ ?>
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="txtKodePerusahaan" name="txtKodePerusahaan" value="<?=$info['kode_perusahaan'];?>" readonly/>
+                        <span id="check-e"></span>
+                    </div>
+                <?php }else{ ?>
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="txtKodePerusahaan" name="txtKodePerusahaan" value="" readonly/>
+                        <span id="check-e"></span>
+                    </div>
+               <?php } ?>
 
                 <div class="form-group">
                     <input type="text" class="form-control" id="txtProject" name="txt_project" placeholder="nama project" data-parsley-minlength="5" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 5 character.." required/>
@@ -55,10 +66,11 @@
             <br/>
 
         </form>
+        <?php if(isset($_SESSION['kode_session'])){ }else{ ?>
         <label>Jika perusahaan anda telah Terdaftar, <a href="sign-up.php">
                 <button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-log-in"></span> Masuk</button>
             </a></label>
-
+        <?php } ?>
     </div>
 
 </div>

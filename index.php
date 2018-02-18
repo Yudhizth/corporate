@@ -117,9 +117,14 @@ $new_password = password_hash($upass, PASSWORD_DEFAULT);
             </form>
             <br/>
             <hr/>
-            <label>Jika perusahaan anda telah Terdaftar, <a href="#" data-toggle="modal" data-target="#loginModal">
-                    <button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-log-in"></span> Masuk</button>
-                </a></label>
+            <div id="btnLogin">
+                <label>Jika perusahaan anda telah Terdaftar, <a href="#" data-toggle="modal" data-target="#loginModal">
+                        <button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-log-in"></span> Masuk</button>
+                    </a></label>
+            </div>
+            <div id="btnKomplain">
+                <label>Jika ada kendala silahkan komplain disini, <button class="btn btn-sm btn-danger btnKomplain" data-id="1"><span class="glyphicon glyphicon-log-in"></span> Komplain</button> </label>
+            </div>
 
         </div>
 
@@ -127,13 +132,13 @@ $new_password = password_hash($upass, PASSWORD_DEFAULT);
 
 <!--bpo-->
     <div id="bpo">
-        <?php include 'bpo.php'; ?>
+        <?php include 'BPO.php'; ?>
     </div>
 <!--end bpo-->
 
 <!--mpo-->
     <div id="mpo">
-        <?php include 'mpo.php'; ?>
+        <?php include 'MPO.php'; ?>
     </div>
 <!--end mpo-->
 
@@ -148,6 +153,12 @@ $new_password = password_hash($upass, PASSWORD_DEFAULT);
         <?php include 'systemIntergrator.php'; ?>
     </div>
 <!--end system integrator-->
+
+    <!--system integrator-->
+    <div id="komplain">
+        <?php include 'komplain.php'; ?>
+    </div>
+    <!--end system integrator-->
 
 <!--<br>-->
 <!--<div class="col-md-8 col-md-offset-2">-->

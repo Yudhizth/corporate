@@ -11,7 +11,7 @@ $kode = $_GET['pendaftaran'];
 
 if (!empty($update)) {
 
-	$id = "1";
+	$id = "2";
 	$sql = "UPDATE tb_list_karyawan SET status_karyawan = :status WHERE no_nip = :nip";
 	$stmt = $config->runQuery($sql);
 	$stmt->execute(array(':status' => $id, ':nip' => $update));
@@ -28,7 +28,7 @@ if (!empty($update)) {
             </script>";
 	}
 }elseif(!empty($delete)){
-	$id = "2";
+	$id = "3";
 	$sql = "UPDATE tb_list_karyawan SET status_karyawan = :status WHERE no_nip = :nip";
 	$stmt = $config->runQuery($sql);
 	$stmt->execute(array(':status' => $id, ':nip' => $delete));

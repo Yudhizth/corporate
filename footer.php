@@ -1,5 +1,9 @@
 </div>
-
+<?php
+    if (isset($kodeMPO)){
+        $kodeMPO = $kodeMPO;
+    }
+?>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
     <script src="assets/jquery-2.1.4.min.js" type="text/javascript"></script>

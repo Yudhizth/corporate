@@ -13,7 +13,7 @@ if(isset($_SESSION['kode_session'])){
     $config->redirect('sign-up.php');
 }
 
-    $sql = "SELECT * FROM tb_perusahaan WHERE tb_perusahaan.kode_perusahaan = :kode";
+    $sql = "SELECT * FROM tb_perusahaan INNER JOIN tb_temporary_perusahaan ON tb_temporary_perusahaan.kode_perusahaan = tb_perusahaan.kode_perusahaan WHERE tb_perusahaan.kode_perusahaan = :kode";
     $stmt = $config->runQuery($sql);
     $stmt->execute(array( ':kode' => $kode));
 

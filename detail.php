@@ -17,7 +17,7 @@ $dt->execute(array(
 	
 ?>
 <br/>
-<div class="contain2">
+<div class="contain">
 	<h3 class="page-header">Rencana Karyawan</h3>
 
 <table class="table table-hover table-bordered">
@@ -36,16 +36,17 @@ $dt->execute(array(
 while ($mv = $dt->fetch(PDO::FETCH_LAZY)) {
 	# code...
 	
-	if ($mv['kd_status'] != "") {
+	if ($mv['kd_status'] != "1") {
 		# code...
 		$flag = '<label class="label label-lg '.$mv['flag'].'">'.$mv['nama_status'].'</label>';
 	} else {
 		$flag = '<label class="label label-lg label-default">not set</label>';
 	}
+
 	if ($mv['status_karyawan'] == '1') {
-		$flag2 = '<label class="label label-lg label-success">Dalam List Project</label>';
-	}elseif(empty($mv['status_karyawan'])){
 		$flag2 = '<label class="label label-lg label-default">Not Set</label>';
+	}elseif($mv['status_karyawan'] == '2'){
+		$flag2 = '<label class="label label-lg label-success">Dalam List Project</label>';
 	}else{
 		$flag2 = '<label class="label label-lg label-danger">Remove from Project</label>';
 	}
@@ -58,7 +59,7 @@ while ($mv = $dt->fetch(PDO::FETCH_LAZY)) {
 		<td><?=$flag?></td>
 		<td><?=$flag2?></td>
 		<td>
-			<?php if(empty($mv['status_karyawan'])){ ?>
+			<?php if($mv['status_karyawan'] == '1'){ ?>
 
 			<a href="confirKaryawan.php?add=<?=$mv['no_nip']?>&pendaftaran=<?=$mv['no_pendaftaran']?>" onclick="return confirm('Ready to add this Karyawan?');"> 
 				Approve
@@ -68,7 +69,7 @@ while ($mv = $dt->fetch(PDO::FETCH_LAZY)) {
 				Decline
 			</a>
 
-			<?php }elseif($mv['status_karyawan'] == '1'){ ?>
+			<?php }elseif($mv['status_karyawan'] == '2'){ ?>
 
 			<a href="confirKaryawan.php?del=<?=$mv['no_nip']?>&pendaftaran=<?=$mv['no_pendaftaran']?>" onclick="return confirm('Are you sure about this?');"> 
 				Decline

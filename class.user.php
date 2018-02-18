@@ -143,6 +143,31 @@ class USER
 
     return substr(str_shuffle(str_repeat($x='!@#$%^&*()0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 	}
+
+    public function getKode($id, $kode, $tbName)
+    {
+
+        $sql = "SELECT MAX(RIGHT(". $id . ", 4)) AS max_id FROM " . $tbName . " ORDER BY ". $id . "";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_LAZY);
+        $id = $row['max_id'];
+        $sort_num = (int) substr($id, 1, 6);
+        $sort_num++;
+        $new_code = sprintf("$kode%05s", $sort_num);
+
+        return $new_code;
+    }
+
+    public function getDate($format)
+    {
+        date_default_timezone_set("Asia/Jakarta");
+
+        $tanggal = date($format);
+
+        return $tanggal;
+    }
 }
 
 class PENDAFTARAN

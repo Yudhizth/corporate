@@ -10,7 +10,8 @@ session_start();
 require '../class.user.php';
 
     $data = new USER();
-    $login = new USER();
+$login = new USER();
+$config = new USER();
 
     $cek = new USER();
     $tbName = "tb_temporary_perusahaan";
@@ -29,11 +30,13 @@ if(@$_GET['type'] == 'bpo'){
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $status      = "0";
+    $kodePerusahaan = $_POST['kodePerusahaan'];
 
-    $sql = "INSERT INTO tb_temporary_perusahaan (no_pendaftaran, nama_perusahaan, cp, phone, email, kebutuhan, nama_project, status) VALUES (:kode, :nama, :cp, :telp, :email, :kebutuhan, :nama_project, :st)";
+    $sql = "INSERT INTO tb_temporary_perusahaan (no_pendaftaran, kode_perusahaan, nama_perusahaan, cp, phone, email, kebutuhan, nama_project, status) VALUES (:kode, :noReg, :nama, :cp, :telp, :email, :kebutuhan, :nama_project, :st)";
     $stmt = $data->runQuery($sql);
     $stmt->execute(array(
         ':kode'	=>$noReg,
+        ':noReg'=>$kodePerusahaan,
         ':nama'	=>$namaPerusahaan,
         ':cp'	=>$cp,
         ':telp'	=>$phone,
@@ -61,11 +64,13 @@ elseif(@$_GET['type'] == 'mpo'){
     $email = $_POST['email'];
     $nameProject = "NULL";
     $status      = "0";
+    $kodePerusahaan = $_POST['kodePerusahaan'];
 
-    $sql = "INSERT INTO tb_temporary_perusahaan (no_pendaftaran, nama_perusahaan, cp, phone, email, kebutuhan, kode_pekerjaan, nama_project, status) VALUES (:kode, :nama, :cp, :telp, :email, :kebutuhan, :pekerjaan, :nama_project, :st)";
+    $sql = "INSERT INTO tb_temporary_perusahaan (no_pendaftaran, kode_perusahaan, nama_perusahaan, cp, phone, email, kebutuhan, kode_pekerjaan, nama_project, status) VALUES (:kode, :noReg, :nama, :cp, :telp, :email, :kebutuhan, :pekerjaan, :nama_project, :st)";
     $stmt = $data->runQuery($sql);
     $stmt->execute(array(
         ':kode' =>$noReg,
+        ':noReg'=>$kodePerusahaan,
         ':nama' =>$namaPerusahaan,
         ':cp'   =>$cp,
         ':telp' =>$phone,
@@ -93,11 +98,13 @@ elseif (@$_GET['type'] == 'kst'){
     $email = $_POST['email'];
     $nameProject = "NULL";
     $status      = "0";
+    $kodePerusahaan = $_POST['kodePerusahaan'];
 
-    $sql = "INSERT INTO tb_temporary_perusahaan (no_pendaftaran, nama_perusahaan, cp, phone, email, kebutuhan, nama_project, status) VALUES (:kode, :nama, :cp, :telp, :email, :kebutuhan, :nama_project, :st)";
+    $sql = "INSERT INTO tb_temporary_perusahaan (no_pendaftaran, kode_perusahaan, nama_perusahaan, cp, phone, email, kebutuhan, nama_project, status) VALUES (:kode, :noReg, :nama, :cp, :telp, :email, :kebutuhan, :nama_project, :st)";
     $stmt = $data->runQuery($sql);
     $stmt->execute(array(
         ':kode' =>$noReg,
+        ':noReg'=>$kodePerusahaan,
         ':nama' =>$namaPerusahaan,
         ':cp'   =>$cp,
         ':telp' =>$phone,
@@ -107,9 +114,9 @@ elseif (@$_GET['type'] == 'kst'){
         ':st' =>$status));
     if (!$stmt) {
         # code...
-        $pesan =  "DATA TIDAK MASUK KE DATABASE";
+       echo "DATA TIDAK MASUK KE DATABASE";
     }else{
-        $pesan =  "Data Berhasil Diajukan. <p>Selanjutnya Anda akan dihubungi oleh pihak sales kami.</p>";
+        echo  "Data Berhasil Diajukan. Selanjutnya Anda akan dihubungi oleh pihak sales kami.";
     }
 }
 
@@ -123,8 +130,26 @@ elseif (@$_GET['type'] == 'sys'){
     $email = $_POST['email'];
     $nameProject = "NULL";
     $status      = "0";
+    $kodePerusahaan = $_POST['kodePerusahaan'];
 
-    echo 'Kode '.$kode.' nama perusahaan: '.$namaPerusahaan. 'cp nya: '.$cp. 'phone number: '.$phone. 'email nya breo:' .$email;
+    $sql = "INSERT INTO tb_temporary_perusahaan (no_pendaftaran, kode_perusahaan, nama_perusahaan, cp, phone, email, kebutuhan, nama_project, status) VALUES (:kode, :noReg, :nama, :cp, :telp, :email, :kebutuhan, :nama_project, :st)";
+    $stmt = $data->runQuery($sql);
+    $stmt->execute(array(
+        ':kode' =>$noReg,
+        ':noReg'=>$kodePerusahaan,
+        ':nama' =>$namaPerusahaan,
+        ':cp'   =>$cp,
+        ':telp' =>$phone,
+        ':email' =>$email,
+        ':kebutuhan' =>$kode,
+        ':nama_project' =>$nameProject,
+        ':st' =>$status));
+    if (!$stmt) {
+        # code...
+       echo "DATA TIDAK MASUK KE DATABASE";
+    }else{
+       echo  "Data Berhasil Diajukan. Selanjutnya Anda akan dihubungi oleh pihak sales kami.";
+    }
 }
 
 
@@ -166,6 +191,47 @@ elseif (@$_GET['type'] == 'login'){
     else
     {
         echo "no";
+    }
+
+}
+
+elseif (@$_GET['type'] == 'komplain'){
+
+    $a = $_POST['nama'];
+    $b = $_POST['cp'];
+    $c = $_POST['phone'];
+    $d = $_POST['email'];
+    $e = $_POST['judul'];
+    $f = $_POST['isi'];
+
+    $table = "tb_complain_perusahaan";
+    $field = "kode_komplain";
+    $key = "CKMPL";
+
+    $formatt = "d-m-Y";
+
+    $kode = $config->getKode($field, $key, $table);
+    $tgl = $config->getDate($formatt);
+
+
+    $sql = "INSERT INTO tb_complain_perusahaan (kode_komplain, kode_perusahaan, cp, phone, email, judul, isi, create_date) 
+    VALUES (:a, :b, :c, :d, :e, :f, :g, :h)";
+    $stmt = $data->runQuery($sql);
+    $stmt->execute(array(
+        ':a'    => $kode,
+        ':b'    => $a,
+        ':c'    => $b,
+        ':d'    => $c,
+        ':e'    => $d,
+        ':f'    => $e,
+        ':g'    => $f,
+        ':h'    => $tgl
+    ));
+    if (!$stmt) {
+        # code...
+        echo "Gagal diajukan!";
+    }else{
+        echo "Nomor Kupon Komplain Anda: ".$kode;
     }
 
 }
