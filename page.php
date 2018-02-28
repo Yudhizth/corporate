@@ -22,6 +22,12 @@
                     case"detail":
                         include "detail.php";
                     break;
+                    case"complain":
+                        include "komplain.php";
+                    break;
+                    case"detailKomplain":
+                        include "detailKomplain.php";
+                    break;
                     case"req":
                         include "requestPerusahaan.php";
                     break;

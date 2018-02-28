@@ -156,7 +156,7 @@ $new_password = password_hash($upass, PASSWORD_DEFAULT);
 
     <!--system integrator-->
     <div id="komplain">
-        <?php include 'komplain.php'; ?>
+       
     </div>
     <!--end system integrator-->
 

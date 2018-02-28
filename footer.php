@@ -2,6 +2,8 @@
 <?php
     if (isset($kodeMPO)){
         $kodeMPO = $kodeMPO;
+    }else{
+        $kodeMPO = "";
     }
 ?>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -14,6 +16,8 @@
 <?php if(isset($_SESSION['kode_session'])){ ?>
     <script src="assets/js/perusahaan.js" type="text/javascript"></script>
 <?php } ?>
+<script src="assets/js/custom.js" type="text/javascript"></script>
+
 <script>
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();

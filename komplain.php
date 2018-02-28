@@ -1,4 +1,13 @@
-<div class="signin-form">
+<?php
+
+$sql = "SELECT * FROM tb_complain_perusahaan WHERE tb_complain_perusahaan.kode_perusahaan= :kode";
+
+$stmt = $config->runQuery($sql);
+$stmt->execute(array(':kode'    => $kode));
+
+
+?>
+<div class="signin-form" id="formComplain" style="margin-top: 1%;">
 
     <div class="container form-signin">
 
@@ -36,6 +45,14 @@
                     <div class="form-group">
                         <input type="email" class="form-control" name="txt_email" id="txtEmail" value="<?=$info['email'];?>" />
                         <span id="check-e"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="txt_judul" id="kmpJudul" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 5 character.." placeholder="komplain mengenai....." required />
+                        <span id="check-e"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea cols="6" rows="5" class="form-control" name="txt_isi" id="kmpIsi" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 5 character.." placeholder="penjelasan komplain..." required></textarea>
+
                     </div>
                 <?php }else{ ?>
                     <div class="form-group">
@@ -77,4 +94,52 @@
         </form>
     </div>
 
+</div>
+
+<div class="contain" id="listComplain">
+	<h3 class="page-header">Komplain Perusahaan</h3>
+
+        <button id="btnFormComplain" class="btn btn-xs btn-primary">Complain</button>
+    <br/>
+    <br/>
+    <br/>
+<table class="table table-hover table-bordered">
+	<thead>
+		<th>#</th>
+		<th>Tanggal Komplain</th>
+		<th>Mengenai</th>
+		<th>Status</th>
+		<th>Update On</th>
+		<th>Details</th>
+	</thead>
+		<tbody>
+           <?php 
+           $i = 1;
+           while($row = $stmt->fetch(PDO::FETCH_LAZY)){ 
+               
+            if(empty($row['status'])){
+                $status = '<label class="label label-default">unset</label>';
+            }elseif($row['status'] == '1'){
+                $status = '<label class="label label-primary">Process</label>';
+            }else{
+                $status = '<label class="label label-success">Done</label>';
+            }
+               ?>
+                <tr>
+                    <td><?=$i++?></td>
+                    <td><?=$row['create_date']?></td>
+                    <td style="text-transform: capitalize;"><?=$row['judul']?></td>
+                    <td><?=$status?></td>
+                    <td><?=$row['update_on']?></td>
+                    <td>
+                        <a href="?p=detailKomplain&kupon=<?=$row['kode_komplain']?>">
+                        <button class="btn btn-xs btn-primary">Details</button>
+                        </a>
+                    </td>
+                </tr>
+           <?php }
+           
+           ?>
+	</tbody>
+</table>
 </div>

@@ -203,6 +203,7 @@ elseif (@$_GET['type'] == 'komplain'){
     $d = $_POST['email'];
     $e = $_POST['judul'];
     $f = $_POST['isi'];
+    $g = $_POST['kode'];
 
     $table = "tb_complain_perusahaan";
     $field = "kode_komplain";
@@ -219,7 +220,7 @@ elseif (@$_GET['type'] == 'komplain'){
     $stmt = $data->runQuery($sql);
     $stmt->execute(array(
         ':a'    => $kode,
-        ':b'    => $a,
+        ':b'    => $g,
         ':c'    => $b,
         ':d'    => $c,
         ':e'    => $d,

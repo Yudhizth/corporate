@@ -22,6 +22,7 @@ if(isset($_SESSION['kode_session'])){
 
 include 'navbar.php';
 
+
 if (isset($_POST['addList'])) {
       $namePekerjaan = $_POST['listPekerjaan'];
       $jmlh = $_POST['total'];

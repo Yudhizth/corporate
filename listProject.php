@@ -1,5 +1,9 @@
 <?php
-$query = "SELECT tb_kerjasama_perusahan.nomor_kontrak, tb_kerjasama_perusahan.kode_perusahaan, tb_temporary_perusahaan.kebutuhan, tb_temporary_perusahaan.nama_project, tb_kategori_pekerjaan.nama_kategori, tb_kategori_pekerjaan.keterangan FROM tb_kerjasama_perusahan INNER JOIN tb_temporary_perusahaan ON tb_temporary_perusahaan.kode_perusahaan = tb_kerjasama_perusahan.kode_perusahaan INNER JOIN tb_kategori_pekerjaan ON tb_kategori_pekerjaan.kode_kategori = tb_temporary_perusahaan.kebutuhan WHERE tb_kerjasama_perusahan.kode_perusahaan = :kode";
+$query = "SELECT tb_kerjasama_perusahan.nomor_kontrak, tb_kerjasama_perusahan.kode_perusahaan, tb_kerjasama_perusahan.kode_request, tb_kerjasama_perusahan.kode_plan, tb_kerjasama_perusahan.kode_list_karyawan, tb_kerjasama_perusahan.total_karyawan, tb_kerjasama_perusahan.tgl_input, tb_perusahaan.nama_perusahaan, tb_temporary_perusahaan.kebutuhan, tb_temporary_perusahaan.nama_project, tb_kategori_pekerjaan.nama_kategori, tb_kategori_pekerjaan.keterangan FROM tb_kerjasama_perusahan
+INNER JOIN tb_perusahaan ON tb_perusahaan.kode_perusahaan=tb_kerjasama_perusahan.kode_perusahaan
+INNER JOIN tb_temporary_perusahaan ON tb_temporary_perusahaan.no_pendaftaran=tb_kerjasama_perusahan.kode_request
+INNER JOIN tb_kategori_pekerjaan ON tb_kategori_pekerjaan.kode_kategori=tb_temporary_perusahaan.kebutuhan
+WHERE tb_kerjasama_perusahan.kode_perusahaan= :kode";
 $stmt = $config->runQuery($query);
 $stmt->execute(array(':kode' => $kode));
 

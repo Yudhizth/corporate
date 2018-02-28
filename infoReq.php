@@ -1,6 +1,11 @@
 <?php 
 
-$q = "SELECT tb_temporary_perusahaan.no_pendaftaran, tb_temporary_perusahaan.kebutuhan, tb_temporary_perusahaan.create_date, tb_temporary_perusahaan.kode_pekerjaan, tb_temporary_perusahaan.nama_project, tb_temporary_perusahaan.kd_status, tb_temporary_perusahaan.tanggal, tb_temporary_perusahaan.status, tb_kategori_pekerjaan.nama_kategori, tb_status_request.nama_status, tb_status_request.flag FROM tb_temporary_perusahaan INNER JOIN tb_kategori_pekerjaan ON tb_kategori_pekerjaan.kode_kategori=tb_temporary_perusahaan.kebutuhan LEFT JOIN tb_status_request ON tb_status_request.kd_stat = tb_temporary_perusahaan.kd_status WHERE tb_temporary_perusahaan.kode_perusahaan = :kode ORDER BY tb_temporary_perusahaan.tanggal DESC";
+$q = "SELECT tb_temporary_perusahaan.no_pendaftaran, tb_temporary_perusahaan.kebutuhan, tb_temporary_perusahaan.create_date, tb_temporary_perusahaan.kode_pekerjaan, tb_temporary_perusahaan.nama_project, tb_temporary_perusahaan.kd_status, tb_temporary_perusahaan.tanggal, tb_temporary_perusahaan.status, tb_kategori_pekerjaan.nama_kategori, tb_status_request.nama_status, tb_status_request.flag,
+tb_kerjasama_perusahan.nomor_kontrak
+FROM tb_temporary_perusahaan
+INNER JOIN tb_kategori_pekerjaan ON tb_kategori_pekerjaan.kode_kategori=tb_temporary_perusahaan.kebutuhan LEFT JOIN tb_status_request ON tb_status_request.kd_stat = tb_temporary_perusahaan.kd_status 
+INNER JOIN tb_kerjasama_perusahan ON tb_kerjasama_perusahan.kode_request = tb_temporary_perusahaan.no_pendaftaran
+WHERE tb_temporary_perusahaan.kode_perusahaan = :kode ORDER BY tb_temporary_perusahaan.tanggal DESC";
 $dt = $config->runQuery($q);
 $dt->execute(array(
 	':kode' => $kode));
@@ -33,7 +38,7 @@ while ($mv = $dt->fetch(PDO::FETCH_LAZY)) {
 	?>
 	<tr>
 		<td><?=$i++?></td>
-		<td><a href="?p=detail&kode=<?=$mv['no_pendaftaran']?>"><?=$mv['no_pendaftaran']?></a></td>
+		<td><a href="?p=detail&kode=<?=$mv['nomor_kontrak']?>"><?=$mv['no_pendaftaran']?></a></td>
 		<td><?=$mv['nama_kategori']?></td>
 		<td><?=$mv['create_date']?></td>
 		<td><?=$flag?></td>

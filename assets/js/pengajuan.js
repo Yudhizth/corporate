@@ -7,7 +7,7 @@ function showLogin(id) {
 
 $(document).ready(function () {
 
-    var btnLogin = $('#btnLogin').hide();
+    var btnLogin = $('#btnKomplain').hide();
 
     var pengajuan = $('#categoryType');
 
@@ -17,7 +17,9 @@ $(document).ready(function () {
     var sys = $('#sys').hide();
     var komplain = $('#komplain').hide();
     var baseUrl = document.location.origin;
-    var url_admin = 'http://localhost/corporate/home.php';
+    var url_admin = 'http://localhost/PROJECT/corporate/home.php';
+
+    var complain = $('#formComplain').hide();
 
 
 //form kebutuhan validasi
@@ -210,12 +212,17 @@ $(document).ready(function () {
         komplain.show(500);
     });
 
-    $('#formKomplain').on('submit', function () {
+    $('#formKomplain').on('submit', function (e) {
 
-        var nama = $('#kmpName').val();
-        var cp = $('#kmpCp').val();
-        var phone = $('#kmpPhone').val();
-        var email = $('#kmpEmail').val();
+        e.preventDefault();
+
+        var id = $('#txtKodePerusahaan').val();
+
+        
+        var nama = $('#txtName').val();
+        var cp = $('#txtCp').val();
+        var phone = $('#txtPhone').val();
+        var email = $('#txtEmail').val();
         var title = $('#kmpJudul').val();
         var isi = $('#kmpIsi').val();
 
@@ -223,7 +230,7 @@ $(document).ready(function () {
             $.ajax({
                 url : 'Json/pengajuan.php?type=komplain',
                 type: 'post',
-                data: 'nama='+nama+'&cp='+cp+'&phone='+phone+'&email='+email+'&judul='+title+'&isi='+isi,
+                data: 'nama='+nama+'&cp='+cp+'&phone='+phone+'&email='+email+'&judul='+title+'&isi='+isi+'&kode='+id,
 
                 success : function (msg) {
                     if(msg != ''){
@@ -237,6 +244,11 @@ $(document).ready(function () {
         else{
         }
 
+    });
+
+    $('#btnFormComplain').on('click', function () {
+        complain.hide().show();
+        $('#listComplain').hide();
     });
 
 

@@ -2,9 +2,12 @@
 require_once 'class.user.php';
 $config = new USER();
 
-$update = $_GET['add'];
 
-$delete = $_GET['del'];
+if(isset($_GET['add'])){
+	$update = $_GET['add'];
+}else{
+	$delete = $_GET['del'];
+}
 
 $kode = $_GET['pendaftaran'];
 

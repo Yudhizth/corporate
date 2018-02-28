@@ -2,15 +2,12 @@
 
 $id = $_GET['kode'];
 
-$q = "SELECT tb_temporary_perusahaan.no_pendaftaran, tb_temporary_perusahaan.nama_perusahaan, tb_temporary_perusahaan.kode_perusahaan, 
-tb_kerjasama_perusahan.nomor_kontrak, tb_kerjasama_perusahan.kode_list_karyawan, tb_list_karyawan.kode_list_karyawan, 
-tb_list_karyawan.no_nip, tb_karyawan.nama_depan, tb_karyawan.nama_belakang, tb_karyawan.jenis_kelamin, 
-year(curdate()) - year(str_to_date(tb_karyawan.tgl_lahir,'%d-%m-%Y')) as Age, tb_list_karyawan.status_karyawan
-FROM tb_temporary_perusahaan 
-INNER JOIN tb_kerjasama_perusahan ON tb_kerjasama_perusahan.kode_perusahaan = tb_temporary_perusahaan.kode_perusahaan
-INNER JOIN tb_list_karyawan ON tb_list_karyawan.kode_list_karyawan=tb_kerjasama_perusahan.kode_list_karyawan
-INNER JOIN tb_karyawan ON tb_karyawan.no_ktp=tb_list_karyawan.no_nip
-WHERE tb_temporary_perusahaan.no_pendaftaran = :kode";
+$q = "SELECT tb_kerjasama_perusahan.nomor_kontrak, tb_kerjasama_perusahan.kode_perusahaan, tb_kerjasama_perusahan.kode_request, tb_kerjasama_perusahan.kode_list_karyawan, tb_kerjasama_perusahan.total_karyawan,
+tb_list_karyawan.no_nip, tb_list_karyawan.kode_jabatan, tb_list_karyawan.kode_pekerjaan, tb_list_karyawan.status_karyawan, tb_karyawan.nama_depan, tb_karyawan.nama_belakang, tb_karyawan.jenis_kelamin, 
+year(curdate()) - year(str_to_date(tb_karyawan.tgl_lahir,'%d-%m-%Y')) as Age FROM tb_kerjasama_perusahan
+INNER JOIN tb_list_karyawan ON tb_list_karyawan.kode_list_karyawan = tb_kerjasama_perusahan.kode_list_karyawan
+INNER JOIN tb_karyawan ON tb_karyawan.no_ktp = tb_list_karyawan.no_nip
+WHERE tb_kerjasama_perusahan.nomor_kontrak = :kode";
 $dt = $config->runQuery($q);
 $dt->execute(array(
 	':kode' => $id));
@@ -61,23 +58,23 @@ while ($mv = $dt->fetch(PDO::FETCH_LAZY)) {
 		<td>
 			<?php if($mv['status_karyawan'] == '1'){ ?>
 
-			<a href="confirKaryawan.php?add=<?=$mv['no_nip']?>&pendaftaran=<?=$mv['no_pendaftaran']?>" onclick="return confirm('Ready to add this Karyawan?');"> 
+			<a href="confirKaryawan.php?add=<?=$mv['no_nip']?>&pendaftaran=<?=$mv['nomor_kontrak']?>" onclick="return confirm('Ready to add this Karyawan?');"> 
 				Approve
 			</a>
 			/
-			<a href="confirKaryawan.php?del=<?=$mv['no_nip']?>&pendaftaran=<?=$mv['no_pendaftaran']?>" onclick="return confirm('Are you sure about this?');"> 
+			<a href="confirKaryawan.php?del=<?=$mv['no_nip']?>&pendaftaran=<?=$mv['nomor_kontrak']?>" onclick="return confirm('Are you sure about this?');"> 
 				Decline
 			</a>
 
 			<?php }elseif($mv['status_karyawan'] == '2'){ ?>
 
-			<a href="confirKaryawan.php?del=<?=$mv['no_nip']?>&pendaftaran=<?=$mv['no_pendaftaran']?>" onclick="return confirm('Are you sure about this?');"> 
+			<a href="confirKaryawan.php?del=<?=$mv['no_nip']?>&pendaftaran=<?=$mv['nomor_kontrak']?>" onclick="return confirm('Are you sure about this?');"> 
 				Decline
 			</a>
 
 			<?php	}else{ ?>
 
-			<a href="confirKaryawan.php?add=<?=$mv['no_nip']?>&pendaftaran=<?=$mv['no_pendaftaran']?>" onclick="return confirm('Ready to add this Karyawan?');"> 
+			<a href="confirKaryawan.php?add=<?=$mv['no_nip']?>&pendaftaran=<?=$mv['nomor_kontrak']?>" onclick="return confirm('Ready to add this Karyawan?');"> 
 				Approve
 			</a>
 

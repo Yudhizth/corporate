@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default">
-   
+
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -20,13 +20,13 @@
                <ul class="dropdown-menu">
                   <li><a href="?p=infoReq">informasi request</a></li>
                   <li><a href="?p=req">request kebutuhan</a></li>
-                  <li><a href="?p=update">complain</a></li>
-                  
+                  <li><a href="?p=complain">complain</a></li>
+
                </ul>
             </li>
          </ul>
          <ul class="nav navbar-nav navbar-right">
-             
+
             <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;Hi' <?= $info['nama_perusahaan']; ?>&nbsp; <span class="caret"></span></a>
                <ul class="dropdown-menu">
@@ -37,6 +37,6 @@
          </ul>
       </div>
       <!-- /.navbar-collapse -->
-   
+
    <!-- /.container-fluid -->
 </nav>
