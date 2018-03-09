@@ -18,7 +18,7 @@ if(isset($_SESSION['kode_session'])){
     $stmt->execute(array( ':kode' => $kode));
 
     $info = $stmt->fetch(PDO::FETCH_LAZY);
-
+  
 
 include 'navbar.php';
 

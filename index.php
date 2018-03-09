@@ -50,6 +50,10 @@ $listMPO->execute();
 //
 //	}
 //}
+
+// <a href="#" data-toggle="modal" data-target="#loginModal">
+//                         <button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-log-in"></span> Masuk</button>
+//                     </a>
 $upass = "admin123";
 $new_password = password_hash($upass, PASSWORD_DEFAULT);
 
@@ -118,7 +122,7 @@ $new_password = password_hash($upass, PASSWORD_DEFAULT);
             <br/>
             <hr/>
             <div id="btnLogin">
-                <label>Jika perusahaan anda telah Terdaftar, <a href="#" data-toggle="modal" data-target="#loginModal">
+                <label>Jika perusahaan anda telah Terdaftar, <a href="sign-up.php">
                         <button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-log-in"></span> Masuk</button>
                     </a></label>
             </div>

@@ -186,24 +186,6 @@ $(document).ready(function () {
         var pass = $('#logPass').val();
 
 
-        if($(this).parsley().validate()){
-            $.ajax({
-                url : 'Json/pengajuan.php?type=login',
-                type: 'post',
-                data: 'kode='+kode+'&pass='+pass,
-
-                success : function (msg) {
-                    if(msg=="ok"){
-
-                        window.location = url_admin;
-                    }else{
-                        alert(msg);
-
-                    }
-                }
-            });
-        }else{
-        }
 
     });
 

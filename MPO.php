@@ -49,19 +49,19 @@
 	        </div>
 
 	        <div class="form-group">
-			        <input type="text" class="form-control" name="txt_nama" id="mpoNama" placeholder="nama perusahaan" required />
+			        <input type="text" class="form-control" name="txt_nama" id="mpoNama" placeholder="nama perusahaan" value="<?=$info['nama_perusahaan'];?>" required />
 			        <span id="check-e"></span>
 	        </div>
 	        <div class="form-group">
-			        <input type="text" class="form-control" name="txt_cp" id="mpoCp" placeholder="nama contact person" required />
+			        <input type="text" class="form-control" name="txt_cp" id="mpoCp" value="<?=$info['cp'];?>" placeholder="nama contact person" required />
 			        <span id="check-e"></span>
 	        </div>
 	        <div class="form-group">
-			        <input type="number" class="form-control" name="txt_phone" id="mpoPhone" placeholder="nomor telphone" required />
+			        <input type="number" class="form-control" name="txt_phone" id="mpoPhone" value="<?=$info['phone'];?>" placeholder="nomor telphone" required />
 			        <span id="check-e"></span>
 	        </div>
 	        <div class="form-group">
-			        <input type="email" class="form-control" name="txt_email" id="mpoEmail" placeholder="example@domain.com" required />
+			        <input type="email" class="form-control" name="txt_email" id="mpoEmail" value="<?=$info['email'];?>" placeholder="example@domain.com" required />
 			        <span id="check-e"></span>
 	        </div>
         </div>

@@ -136,7 +136,7 @@ $new_password = password_hash($upass, PASSWORD_DEFAULT);
     </div>
     <!--end mpo-->
 
-    <!--konsultan-->
+   <!--  konsultan -->
     <div id="kst">
         <?php include 'konsultan.php'; ?>
     </div>
@@ -169,48 +169,7 @@ $new_password = password_hash($upass, PASSWORD_DEFAULT);
     <!--    </div>-->
     <!--</div>-->
 
-    <div class="modal fade" id="loginModal" role="dialog">
-        <div class="modal-dialog">
-
-            <form method="post" class="form-login" id="formLogin" action="" data-parsley-validate="">
-                <h2 class="form-signin-heading">Login Corporate</h2><hr />
-                <?php
-                if(isset($error))
-                {
-                    ?>
-                    <div div class="alert alert-danger alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <i class="glyphicon glyphicon-danger-sign"></i> &nbsp; <?php echo $error; ?>
-                    </div>
-                    <?php
-                }
-                else if(isset($_GET['joined']))
-                {
-                    ?>
-                    <div class="alert alert-info">
-                        <i class="glyphicon glyphicon-log-in"></i> &nbsp; Successfully registered <strong><a href='index.php'>login</a></strong> here
-                    </div>
-                    <?php
-                }
-                ?>
-                <div class="form-group">
-                    <input type="text" class="form-control" name="txt_kode" id="logKode" placeholder="kode perusahanan" required />
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" name="txt_upass" id="logPass" placeholder="enter password" required />
-                </div>
-
-                <div class="clearfix"></div><hr />
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block" name="btn-login">
-                        <i class="glyphicon glyphicon-log-in"></i>&nbsp;LOGIN
-                    </button>
-                </div>
-            </form>
-
-        </div>
-    </div>
-
+    
 
     <div class="modal fade" id="addListMPO" role="dialog">
         <div class="modal-dialog">

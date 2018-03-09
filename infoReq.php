@@ -22,17 +22,22 @@ $dt->execute(array(
 		<th>Jenis</th>
 		<th>Tanggal Pengajuan</th>
 		<th>Status</th>
-		<th>Tanggal Status</th>
 	</thead>
 	<?php
 	$i = 1; 
 while ($mv = $dt->fetch(PDO::FETCH_LAZY)) {
 	# code...
 	
-	if ($mv['kd_status'] != "") {
+	if ($mv['status'] == 3) {
 		# code...
-		$flag = '<label class="label label-lg '.$mv['flag'].'">'.$mv['nama_status'].'</label>';
-	} else {
+		$flag = '<label class="label label-lg label-primary">Input Data</label>';
+	}elseif ($mv['status'] == 4) {
+		$flag = '<label class="label label-lg label-info">Selected Karyawan</label>';
+	}elseif($mv['status'] == 5){
+		$flag = '<label class="label label-lg label-success">Add Jobs</label>';
+	}
+
+	else {
 		$flag = '<label class="label label-lg label-default">not set</label>';
 	}
 	?>
@@ -42,7 +47,6 @@ while ($mv = $dt->fetch(PDO::FETCH_LAZY)) {
 		<td><?=$mv['nama_kategori']?></td>
 		<td><?=$mv['create_date']?></td>
 		<td><?=$flag?></td>
-		<td><?=$mv['tanggal']?></td>
 	</tr>
 
 	<?php 
