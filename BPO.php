@@ -24,35 +24,52 @@
                         <input type="hidden" class="form-control" id="txtKodePerusahaan" name="txtKodePerusahaan" value="<?=$info['kode_perusahaan'];?>" readonly/>
                         <span id="check-e"></span>
                     </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="txt_nama" id="kstNama" value="<?=$info['nama_perusahaan'];?>">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtProject" name="txt_project" placeholder="nama project" data-parsley-minlength="5" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 5 character.." required/>
+                        <span id="check-e"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="txt_cp" id="kstCp" value="<?=$info['contact_person'];?>">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="txt_phone" id="kstPhone" value="<?=$info['nomor_hp'];?>">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="txt_email" id="kstEmail"  value="<?=$info['email'];?>">
+                    </div>
                 <?php }else{ ?>
                     <div class="form-group">
                         <input type="hidden" class="form-control" id="txtKodePerusahaan" name="txtKodePerusahaan" value="" readonly/>
                         <span id="check-e"></span>
                     </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtProject" name="txt_project" placeholder="nama project" data-parsley-minlength="5" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 5 character.." required/>
+                        <span id="check-e"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtNama" name="txt_nama" placeholder="nama perusahaan" data-parsley-minlength="5" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 5 character.." required/>
+                        <span id="check-e"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtCp" name="txt_cp" placeholder="nama contact person" data-parsley-minlength="3" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 3 character.." required/>
+                        <span id="check-e"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="txtPhone" name="txt_phone" placeholder="nomor telphone" data-parsley-minlength="5" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 5 character.." required/>
+                        <span id="check-e"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="txtEmail" name="txt_email" placeholder="example@domain.com"
+                               required/>
+                        <span id="check-e"></span>
+                    </div>
                <?php } ?>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" id="txtProject" name="txt_project" placeholder="nama project" data-parsley-minlength="5" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 5 character.." required/>
-                    <span id="check-e"></span>
-                </div>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" id="txtNama" name="txt_nama" placeholder="nama perusahaan" data-parsley-minlength="5" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 5 character.." required/>
-                    <span id="check-e"></span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="txtCp" name="txt_cp" placeholder="nama contact person" data-parsley-minlength="3" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 3 character.." required/>
-                    <span id="check-e"></span>
-                </div>
-                <div class="form-group">
-                    <input type="number" class="form-control" id="txtPhone" name="txt_phone" placeholder="nomor telphone" data-parsley-minlength="5" data-parsley-maxlength="1000" data-parsley-minlength-message="You need to enter at least a 5 character.." required/>
-                    <span id="check-e"></span>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="txtEmail" name="txt_email" placeholder="example@domain.com"
-                           required/>
-                    <span id="check-e"></span>
-                </div>
             </div>
 
             <hr/>

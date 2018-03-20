@@ -33,7 +33,23 @@
         <div class="form-group">
             <?php if(isset($_SESSION['kode_session'])){ ?>
                 <div class="form-group">
+                    <input type="hidden" class="form-control" name="txt_kd" id="mpoKode" value="<?php echo $kodeMPO; ?>" />
+                    <span id="check-e"></span>
+                </div>
+                <div class="form-group">
                     <input type="hidden" class="form-control" id="mpoKodePerusahaan" name="mpoKodePerusahaan" value="<?=$info['kode_perusahaan'];?>" readonly/>
+                    <span id="check-e"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="txt_nama" id="mpoNama" placeholder="nama perusahaan" value="<?=$info['nama_perusahaan'];?>" required />
+                    <span id="check-e"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="txt_cp" id="mpoCp" value="<?=$info['contact_person'];?>" placeholder="nama contact person" required />
+                    <span id="check-e"></span>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" name="txt_phone" id="mpoPhone" value="<?=$info['nomor_hp'];?>" placeholder="nomor telphone" required />
                     <span id="check-e"></span>
                 </div>
             <?php }else{ ?>
@@ -41,27 +57,27 @@
                     <input type="hidden" class="form-control" id="mpoKodePerusahaan" name="mpoKodePerusahaan" value="" readonly/>
                     <span id="check-e"></span>
                 </div>
+                <div class="form-group">
+                    <input type="hidden" class="form-control" name="txt_kd" id="mpoKode" value="<?php echo $kodeMPO; ?>" />
+                    <span id="check-e"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="txt_nama" id="mpoNama" placeholder="nama perusahaan" required />
+                    <span id="check-e"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="txt_cp" id="mpoCp" value="" placeholder="nama contact person" required />
+                    <span id="check-e"></span>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" name="txt_phone" id="mpoPhone" value="" placeholder="nomor telphone" required />
+                    <span id="check-e"></span>
+                </div>
             <?php } ?>
 
-        	<div class="form-group">
-			        <input type="hidden" class="form-control" name="txt_kd" id="mpoKode" value="<?php echo $kodeMPO; ?>" />
-			        <span id="check-e"></span>
-	        </div>
 
 	        <div class="form-group">
-			        <input type="text" class="form-control" name="txt_nama" id="mpoNama" placeholder="nama perusahaan" value="<?=$info['nama_perusahaan'];?>" required />
-			        <span id="check-e"></span>
-	        </div>
-	        <div class="form-group">
-			        <input type="text" class="form-control" name="txt_cp" id="mpoCp" value="<?=$info['cp'];?>" placeholder="nama contact person" required />
-			        <span id="check-e"></span>
-	        </div>
-	        <div class="form-group">
-			        <input type="number" class="form-control" name="txt_phone" id="mpoPhone" value="<?=$info['phone'];?>" placeholder="nomor telphone" required />
-			        <span id="check-e"></span>
-	        </div>
-	        <div class="form-group">
-			        <input type="email" class="form-control" name="txt_email" id="mpoEmail" value="<?=$info['email'];?>" placeholder="example@domain.com" required />
+			        <input type="email" class="form-control" name="txt_email" id="mpoEmail" value="" placeholder="example@domain.com" required />
 			        <span id="check-e"></span>
 	        </div>
         </div>

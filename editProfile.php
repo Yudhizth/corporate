@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <input type="hidden" id="kodePerusahaan" value="<?=$info['kode_perusahaan']?>">
                         <label for="editNPWP">NOMOR NPWP</label>
-                        <input type="text" class="form-control" id="editNPWP"
+                        <input type="text" class="form-control" value="<?=$info['nomor_NPWP']?>" id="editNPWP"
                                placeholder="......." data-parsley-minlength="5"
                                data-parsley-maxlength="100"
                                data-parsley-type="number"
@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group">
                         <label for="editSIUP">NOMOR SIUP</label>
-                        <input type="text" class="form-control" id="editSIUP"
+                        <input type="text" class="form-control" value="<?=$info['nomor_SIUP']?>" id="editSIUP"
                                placeholder="......." data-parsley-minlength="5"
                                data-parsley-maxlength="100"
                                data-parsley-type="number"
@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group">
                         <label for="editPhone">NOMOR Telp.</label>
-                        <input type="text" class="form-control" id="editPhone"
+                        <input type="text" class="form-control" value="<?=$info['nomor_telp']?>" id="editPhone"
                                placeholder="......." data-parsley-minlength="5"
                                data-parsley-maxlength="100"
                                data-parsley-type="number"
@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label for="editHP">NOMOR Handphone</label>
-                        <input type="text" class="form-control" id="editHP"
+                        <input type="text" class="form-control" value="<?=$info['nomor_hp']?>" id="editHP"
                                placeholder="......." data-parsley-minlength="5"
                                data-parsley-maxlength="100"
                                data-parsley-type="number"
@@ -53,7 +53,7 @@
                     </div>
                     <div class="form-group">
                         <label for="editFAX">NOMOR FAX</label>
-                        <input type="text" class="form-control" id="editFAX"
+                        <input type="text" class="form-control" value="<?=$info['nomor_fax']?>" id="editFAX"
                                placeholder="......." data-parsley-minlength="5"
                                data-parsley-maxlength="100"
                                data-parsley-type="number"

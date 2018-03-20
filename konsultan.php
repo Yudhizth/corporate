@@ -28,10 +28,10 @@
                     <input type="text" class="form-control" name="txt_nama" id="kstNama" value="<?=$info['nama_perusahaan'];?>">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="txt_cp" id="kstCp" value="<?=$info['cp'];?>">
+                    <input type="text" class="form-control" name="txt_cp" id="kstCp" value="<?=$info['contact_person'];?>">
                 </div>
                 <div class="form-group">
-                    <input type="number" class="form-control" name="txt_phone" id="kstPhone" value="<?=$info['phone'];?>">
+                    <input type="number" class="form-control" name="txt_phone" id="kstPhone" value="<?=$info['nomor_hp'];?>">
                 </div>
                 <div class="form-group">
                     <input type="email" class="form-control" name="txt_email" id="kstEmail"  value="<?=$info['email'];?>">

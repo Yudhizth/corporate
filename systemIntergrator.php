@@ -28,10 +28,10 @@
                     <input type="text" class="form-control" name="txt_nama" id="sysName" value="<?=$info['nama_perusahaan']?>" readonly>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="txt_cp" id="sysCp" value="<?=$info['cp'];?>" >
+                    <input type="text" class="form-control" name="txt_cp" id="sysCp" value="<?=$info['contact_person'];?>" >
                 </div>
                 <div class="form-group">
-                    <input type="number" class="form-control" name="txt_phone" id="sysPhone" value="<?=$info['phone'];?>">
+                    <input type="number" class="form-control" name="txt_phone" id="sysPhone" value="<?=$info['nomor_hp'];?>">
                 </div>
                 <div class="form-group">
                     <input type="email" class="form-control" name="txt_email" id="sysEmail" value="<?=$info['email'];?>" />
