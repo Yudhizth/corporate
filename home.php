@@ -10,6 +10,7 @@ $curdir = dirname($_SERVER['REQUEST_URI'])."/";
 if(isset($_SESSION['kode_session'])){
     $kode = $_SESSION['kode_session'];
 }else{
+    $kode = "";
     $config->redirect('sign-up.php');
 }
 
